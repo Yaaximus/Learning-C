@@ -1,0 +1,3 @@
+/home/lss/repos/Learning-C/HelloWorld/CMakeFiles/rebuild_cache.dir
+/home/lss/repos/Learning-C/HelloWorld/CMakeFiles/HelloWorld.dir
+/home/lss/repos/Learning-C/HelloWorld/CMakeFiles/edit_cache.dir
