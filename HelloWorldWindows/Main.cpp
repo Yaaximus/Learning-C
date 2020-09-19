@@ -1,10 +1,49 @@
+// Imports
 #include <iostream>
+#include <string>
 
-void Log(const char* message);
+// Function Declerations
+void Greetings();
+void Signed_int();
+void Unsigned_int();
+void Get_data_types();
+void decimal_data_type();
+void boolean_data_type();
+void Log(std::string message);
+void MultiplyandLog(int a, int b);
+
+// Main Function(Entry Point)
+int main()
+{
+	// Hello World
+	{
+		Greetings();
+	}
+
+	// Data types
+	{
+		Signed_int();
+		Unsigned_int();
+		decimal_data_type();
+		boolean_data_type();
+		Get_data_types();
+	}
+
+	// Functions
+	{
+		MultiplyandLog(5, 5);
+		MultiplyandLog(5, 6);
+		MultiplyandLog(5, 7);
+	}
+
+	std::cout << "Press enter to exit." << std::endl;
+	std::cin.get();
+}
 
 void Greetings()
 {
-	Log("Hello World!");
+	std::string temp_greeting = "Hello World!";
+	Log(temp_greeting);
 }
 
 void Signed_int()
@@ -49,18 +88,6 @@ void boolean_data_type()
 	temp_boolean_variable = false;
 	std::cout << "Boolean variable False:" << std::endl;
 	std::cout << temp_boolean_variable << std::endl;
-	std::cout << " size of bool data type in bytes:" << std::endl;
+	std::cout << "Size of bool data type in bytes:" << std::endl;
 	std::cout << sizeof(bool) << std::endl;
-}
-
-
-int main()
-{
-	Greetings();
-	Signed_int();
-	Unsigned_int();
-	decimal_data_type();
-	boolean_data_type();
-	Get_data_types();
-	std::cin.get();
 }
