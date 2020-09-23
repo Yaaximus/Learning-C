@@ -1,20 +1,5 @@
 #include<iostream>
 
-class Player
-{
-public:
-	int x=0, y=0;
-	int speed=1;
-
-	void Move(int xa, int ya)
-	{
-		std::cout << x << ", " << y << std::endl;
-		x += xa * speed;
-		y += ya * speed;
-		std::cout << x << ", " << y << std::endl;
-	}
-};
-
 class Log
 {
 public:
@@ -23,7 +8,7 @@ public:
 		LevelError = 0, LevelWarning, LevelInfo
 	};
 private:
-	int m_LogLevel = LevelInfo;
+	LogLevel m_LogLevel = LevelInfo;
 public:
 	void SetLevel(LogLevel level)
 	{
@@ -58,6 +43,21 @@ static int s_Variable = 10;
 
 // Use extern to get the value of a global variable from another cpp file using linker
 extern int s_Variable_externally_avaliable;
+
+class Player : public Log
+{
+public:
+	int x = 0, y = 0;
+	int speed = 1;
+
+	void Move(int xa, int ya)
+	{
+		std::cout << x << ", " << y << std::endl;
+		x += xa * speed;
+		y += ya * speed;
+		std::cout << x << ", " << y << std::endl;
+	}
+};
 
 struct Entity
 {
@@ -126,6 +126,7 @@ int main()
 	// Player class
 	{
 		Player player_1, player_2;
+		player_1.Info("Moving player 1");
 		player_1.Move(1, -1);
 		player_2.Move(3, -3);
 	}
