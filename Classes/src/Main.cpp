@@ -85,6 +85,8 @@ public:
 
 	Student(float x, float y)
 	{
+		std::cout << "Student Class Initialized..." << std::endl;
+
 		X = x;
 		Y = y;
 	}
@@ -93,7 +95,21 @@ public:
 	{
 		std::cout << X << ", " << Y << std::endl;
 	}
+
+	~Student()
+	{
+		std::cout << "Destructor Launched..." << std::endl;
+	}
 };
+
+void debug_destructor()
+{
+	// Constructor in class
+	{
+		Student student(5.0f, 10.0f);
+		student.Print();
+	}
+}
 
 void Function_with_static_var()
 {
@@ -155,11 +171,9 @@ int main()
 		Function_with_static_var();
 	}
 
-	// Constructor in class
-	{
-		Student student(5.0f, 10.0f);
-		student.Print();
-	}
+	// Constructor and Destructor in Class
+
+	debug_destructor();
 	
 	std::cout << "Press Enter to exit." << std::endl;
 	std::cin.get();
