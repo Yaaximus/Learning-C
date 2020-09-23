@@ -58,6 +58,33 @@ static int s_Variable = 10;
 // Use extern to get the value of a global variable from another cpp file using linker
 extern int s_Variable_externally_avaliable;
 
+struct Entity
+{
+	int x, y;
+	static int a, b;
+
+	void Print_xy()
+	{
+		std::cout << x << ", " << y << std::endl;
+	}
+
+	static void Print_ab()
+	{
+		std::cout << a << ", " << b << std::endl;
+	}
+};
+
+int Entity::a;
+int Entity::b;
+
+void Function_with_static_var()
+{
+	static int i = 0;
+	
+	i++;
+	std::cout << i << std::endl;
+}
+
 int main()
 {
 	std::cout << "Classes in C++" << std::endl;
@@ -83,6 +110,32 @@ int main()
 	// Static variable
 	std::cout << s_Variable << std::endl;
 	std::cout << s_Variable_externally_avaliable << std::endl;
+
+	// Static Variable in Class/Struct
+	{
+		Entity e1 = { 1,2 };
+		Entity e2;
+
+		Entity::a = 5;
+		Entity::b = 6;
+
+		e2.x = 3;
+		e2.y = 4;
+
+		e1.Print_xy();
+		e2.Print_xy();
+
+		Entity::Print_ab();
+	}
+
+	// Static in Function
+	{
+		Function_with_static_var();
+		Function_with_static_var();
+		Function_with_static_var();
+		Function_with_static_var();
+		Function_with_static_var();
+	}
 	
 	std::cout << "Press Enter to exit." << std::endl;
 	std::cin.get();
