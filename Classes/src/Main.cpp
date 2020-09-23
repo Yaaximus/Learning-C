@@ -78,6 +78,23 @@ struct Entity
 int Entity::a;
 int Entity::b;
 
+class Student
+{
+public:
+	float X, Y;
+
+	Student(float x, float y)
+	{
+		X = x;
+		Y = y;
+	}
+
+	void Print()
+	{
+		std::cout << X << ", " << Y << std::endl;
+	}
+};
+
 void Function_with_static_var()
 {
 	static int i = 0;
@@ -136,6 +153,12 @@ int main()
 		Function_with_static_var();
 		Function_with_static_var();
 		Function_with_static_var();
+	}
+
+	// Constructor in class
+	{
+		Student student(5.0f, 10.0f);
+		student.Print();
 	}
 	
 	std::cout << "Press Enter to exit." << std::endl;
